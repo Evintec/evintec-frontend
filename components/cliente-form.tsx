@@ -146,6 +146,8 @@ export default function ClienteForm() {
     mode: "onChange",
   })
 
+  
+
   const estados = [
     "AC",
     "AL",
@@ -175,7 +177,7 @@ export default function ClienteForm() {
     "SE",
     "TO",
   ]
-
+  console.log(form.watch());
   // Função para validar o passo atual
   const validateStep = async (stepIndex: number) => {
     if (stepIndex >= stepValidationSchema.length) return true
@@ -254,6 +256,7 @@ export default function ClienteForm() {
 
   // Renderizar o conteúdo do passo atual
   const renderStepContent = () => {
+    const [date, setDate] = useState<Date>()
     switch (currentStep) {
       case 0:
         return (
@@ -278,29 +281,25 @@ export default function ClienteForm() {
                 name="data_cadastro"
                 render={({ field }) => (
                   <FormItem className="flex flex-col">
-                    <FormLabel>Data de Cadastro</FormLabel>
+                    <FormLabel className="mb-2.5">Data de Cadastro</FormLabel>
                     <Popover>
                       <PopoverTrigger asChild>
-                        <FormControl>
-                          <Button
-                            variant={"outline"}
-                            className={cn("w-full pl-3 text-left font-normal", !field.value && "text-muted-foreground")}
-                          >
-                            {field.value ? (
-                              format(field.value, "dd/MM/yyyy", { locale: ptBR })
-                            ) : (
-                              <span>Selecione uma data</span>
-                            )}
-                            <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                          </Button>
-                        </FormControl>
+                        <Button
+                          variant={"outline"}
+                          className={cn(
+                            "w-100 justify-start text-left font-normal ",
+                            !date && "text-muted-foreground"
+                          )}
+                        >
+                          <CalendarIcon className="mr-2 h-4 w-4" />
+                          {date ? format(date, "PPP", { locale: ptBR }) : <span>Escolha uma data</span>}
+                        </Button>
                       </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
+                      <PopoverContent className="w-auto p-0">
                         <Calendar
                           mode="single"
-                          selected={field.value}
-                          onSelect={field.onChange}
-                          disabled={(date) => date > new Date() || date < new Date("1900-01-01")}
+                          selected={date}
+                          onSelect={setDate}
                           initialFocus
                         />
                       </PopoverContent>
@@ -483,7 +482,7 @@ export default function ClienteForm() {
                   <FormItem>
                     <FormLabel>Número</FormLabel>
                     <FormControl>
-                      <Input placeholder="Número" {...field} />
+                      <Input placeholder="Digite o número" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

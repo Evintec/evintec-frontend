@@ -18,7 +18,10 @@ import React from "react"
 
 export function TopNav() {
   const pathname = usePathname()
-  const pathSegments = pathname.split("/").filter(Boolean)
+  const pathSegments = pathname
+    .split("/")
+    .filter(Boolean)
+    .map(segment => segment.replace("-", " "));
   const { settings } = useSettings()
 
   return (

@@ -25,18 +25,18 @@ import { Button } from "@/components/ui/button"
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from "@/components/ui/tooltip"
 
 const navigation = [
-  { name: "Dashboard", href: "/", icon: Home },
-  { name: "Analytics", href: "/analytics", icon: BarChart2 },
+  { name: "Painel de Controle", href: "/", icon: Home },
+  { name: "Relatórios", href: "/analytics", icon: BarChart2 },
   { name: "Cadastro de Cliente", href: "/cadastrar-cliente", icon: Users2 },
-  { name: "Organization", href: "/organization", icon: Building2 },
-  { name: "Projects", href: "/projects", icon: Folder },
-  { name: "Transactions", href: "/transactions", icon: Wallet },
-  { name: "Invoices", href: "/invoices", icon: Receipt },
-  { name: "Payments", href: "/payments", icon: CreditCard },
-  { name: "Members", href: "/members", icon: Users2 },
-  { name: "Permissions", href: "/permissions", icon: Shield },
-  { name: "Chat", href: "/chat", icon: MessagesSquare },
-  { name: "Meetings", href: "/meetings", icon: Video },
+  // { name: "Organization", href: "/organization", icon: Building2 },
+  // { name: "Projects", href: "/projects", icon: Folder },
+  // { name: "Transactions", href: "/transactions", icon: Wallet },
+  // { name: "Invoices", href: "/invoices", icon: Receipt },
+  // { name: "Payments", href: "/payments", icon: CreditCard },
+  // { name: "Members", href: "/members", icon: Users2 },
+  // { name: "Permissions", href: "/permissions", icon: Shield },
+  // { name: "Chat", href: "/chat", icon: MessagesSquare },
+  // { name: "Meetings", href: "/meetings", icon: Video },
 ]
 
 const bottomNavigation = [
@@ -95,7 +95,7 @@ export function Sidebar() {
             <div className={cn("flex h-16 items-center gap-2 px-4", isCollapsed && "justify-center px-2")}>
               {!isCollapsed && (
                 <Link href="/" className="flex items-center font-semibold">
-                  <span className="text-lg">Flowers&Saints</span>
+                  <span className="text-lg">Evitech Soluções</span>
                 </Link>
               )}
               <Button
