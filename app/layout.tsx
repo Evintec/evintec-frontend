@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata = {
   title: "Evintec Soluções",
   description: "A modern, responsive financial dashboard",
-    generator: 'Evintec'
+  generator: 'Evintec'
 }
 
 export default function RootLayout({
@@ -30,7 +30,7 @@ export default function RootLayout({
                 <Sidebar />
                 <div className="flex-1">
                   <TopNav />
-                  <div className="container mx-auto p-6 max-w-7xl">
+                  <div className="container mx-auto p-4 max-w-7xl">
                     <main className="w-full">{children}</main>
                   </div>
                 </div>

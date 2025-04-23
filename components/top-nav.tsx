@@ -26,11 +26,11 @@ export function TopNav() {
 
   return (
     <header className="sticky top-0 z-40 border-b bg-background">
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
+      <div className="container flex h-16 items-center max-lg:justify-end justify-between px-4 md:px-6">
         <div className="hidden md:block">
           <nav className="flex items-center space-x-2">
             <Link href="/" className="text-sm font-medium">
-              Home
+              Painel de Controle
             </Link>
             {pathSegments.map((segment, index) => (
               <React.Fragment key={segment}>
@@ -42,7 +42,7 @@ export function TopNav() {
             ))}
           </nav>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex justify-end gap-4">
           <Notifications />
           <ThemeToggle />
           <DropdownMenu>
